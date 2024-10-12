@@ -785,8 +785,8 @@ void Image(const sf::Texture& texture, const sf::Vector2f& size,
            const sf::Color& tintColor,
            const sf::Color& borderColor)
 {
-    ImTextureID textureID = convertGLTextureHandleToImTextureID(
-                                texture.getNativeHandle());
+    const ImTextureID textureID = convertGLTextureHandleToImTextureID(
+                                      texture.getNativeHandle());
 
     ImGui::Image(textureID, ImVec2(size.x, size.y), ImVec2(0, 0), ImVec2(1, 1),
                  toImColor(tintColor), toImColor(borderColor));
@@ -838,8 +838,8 @@ void Image(const sf::Sprite& sprite, const sf::Vector2f& size,
     const ImVec2 uv1((textureRect.left + textureRect.width) / textureSize.x,
                      (textureRect.top + textureRect.height) / textureSize.y);
 
-    ImTextureID textureID = convertGLTextureHandleToImTextureID(
-                                texture.getNativeHandle());
+    const ImTextureID textureID = convertGLTextureHandleToImTextureID(
+                                      texture.getNativeHandle());
 
     ImGui::Image(textureID, ImVec2(size.x, size.y), uv0, uv1, toImColor(tintColor),
                  toImColor(borderColor));
@@ -851,8 +851,8 @@ bool ImageButton(const char* id, const sf::Texture& texture,
                  const sf::Vector2f& size,
                  const sf::Color& bgColor, const sf::Color& tintColor)
 {
-    ImTextureID textureID = convertGLTextureHandleToImTextureID(
-                                texture.getNativeHandle());
+    const ImTextureID textureID = convertGLTextureHandleToImTextureID(
+                                      texture.getNativeHandle());
 
     return ImGui::ImageButton(id, textureID, ImVec2(size.x, size.y), ImVec2(0, 0),
                               ImVec2(1, 1),
@@ -865,7 +865,7 @@ bool ImageButton(const char* id, const sf::RenderTexture& texture,
                  const sf::Vector2f& size,
                  const sf::Color& bgColor, const sf::Color& tintColor)
 {
-    ImTextureID textureID =
+    const ImTextureID textureID =
         convertGLTextureHandleToImTextureID(texture.getTexture().getNativeHandle());
 
     return ImGui::ImageButton(id, textureID, ImVec2(size.x, size.y), ImVec2(0, 1),
@@ -892,8 +892,8 @@ bool ImageButton(const char* id, const sf::Sprite& sprite, const sf::Vector2f& s
     const ImVec2 uv1((textureRect.left + textureRect.width) / textureSize.x,
                      (textureRect.top + textureRect.height) / textureSize.y);
 
-    ImTextureID textureID = convertGLTextureHandleToImTextureID(
-                                texture.getNativeHandle());
+    const ImTextureID textureID = convertGLTextureHandleToImTextureID(
+                                      texture.getNativeHandle());
     return ImGui::ImageButton(id, textureID, ImVec2(size.x, size.y), uv0, uv1,
                               toImColor(bgColor),
                               toImColor(tintColor));
